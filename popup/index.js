@@ -12,7 +12,6 @@ function execute(){
 		let msg = {
 			txt : txtField.value
 		}
-
 		chrome.tabs.sendMessage(tabs[0].id, msg);
 	}
 }
