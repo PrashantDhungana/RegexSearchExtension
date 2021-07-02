@@ -1,6 +1,7 @@
 let paragraphs = document.getElementsByTagName('p');
 let images = document.getElementsByTagName('img');
 
+chrome.runtime.onMessage.addListener(DisplayPopup);
 chrome.runtime.onMessage.addListener(imageChange);
 
 function gotMessage(message, sender, sendResponse){
@@ -9,6 +10,14 @@ function gotMessage(message, sender, sendResponse){
 			x.style['background-color'] = "#FF6633";
 		}
 	}
+}
+
+
+function DisplayPopup(message, sender, sendResponse){
+	for(x of paragraphs){
+			x.innerHTML = message.txt;
+		}
+
 }
 
 function imageChange(message, sender, sendResponse){
@@ -20,3 +29,5 @@ function imageChange(message, sender, sendResponse){
 		}
 	}
 }
+
+
